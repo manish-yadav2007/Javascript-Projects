@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.typing-bg {
+    background-image: url("https://img.freepik.com/free-vector/gradient-liquid-abstract-background_23-2148916930.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.typing-wrapper {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    width: 100%;
+    max-height: 95%;
+    /* overflow-y: auto; */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.typing-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+    color: #fbbf24;
+    margin-bottom: 10px;
+}
+
+.typing-caption {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #cbd5e1;
+}
+
+.typing-timer {
+    justify-content: center;
+    gap: 12px;
+}
+
+.timer-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.timer-text {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #22d3ee;
+}
+
+.typing-text-section {
+    background-color: #1e293b;
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+.random-text {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 500;
+    font-family: mv boli;
+    color: #fffeb8;
+}
+
+.user-input-text {
+    background-color: #334155;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #e0e7ff;
+    font-size: 1.1rem;
+    min-height: 80px;
+}
+
+.result-text {
+    font-size: 1.5rem;
+    color: #ef4444;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+
+
+.user-entered-text {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    padding: 16px;
+    transition: outline 0.3s ease-in;
+}
+
+
+.user-entered-text:focus {
+    outline: 4px solid rgb(88, 213, 255);
+}
+
+
+.user-entered-text::placeholder {
+    color: #0f172a;
+    font-family: verdana;
+    font-weight: 500;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.btn-submit,
+.btn-reset {
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    color: #ffffff;
+}
+
+.btn-submit:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #7c3aed, #9333ea);
+}
+
+.btn-reset {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.btn-reset:hover {
+    background-color: #e2e8f0;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 600px) {
+    .typing-title {
+        font-size: 2rem;
+    }
+
+    .typing-caption {
+        font-size: 1.2rem;
+    }
+
+    .timer-text {
+        font-size: 1.2rem;
+    }
+
+    .random-text,
+    .user-input-text {
+        font-size: 1rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-submit,
+    .btn-reset {
+        width: 100%;
+    }
+}

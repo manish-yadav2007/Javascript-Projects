@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="typing-bg">
+        <div class="container">
+            <div class="typing-wrapper p-4 mt-5 mb-3 " id="speedTypingTest">
+                <h1 class="typing-title">Speed Typing Test</h1>
+                <p class="typing-caption">On Your Fingers, Let's Go!
+
+
+                <div class="typing-timer d-flex align-items-center mt-4 mb-4">
+                    <img src="https://assets.ccbp.in/frontend/dynamic-webapps/clock-img.png" class="timer-icon"
+                        alt="Timer Icon" />
+                    <p id="timer" class="timer-text ml-3"></p>
+                </div>
+
+                </p>
+                <div class="typing-text-section">
+                    <p class="random-text" id="quoteDisplay">
+
+                    <div class="d-none" id="spinner">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                    <div class="user-input-text mt-4">
+                        <textarea placeholder="Start Typing Here....." rows="8" class="user-entered-text"
+                            id="quoteInput"></textarea>
+                    </div>
+
+                    <p class="result-text mt-3" id="result"></p>
+
+                    <div class="btn-group mt-4">
+                        <button class="btn-submit" id="submitBtn">Submit</button>
+                        <button class="btn-reset" id="resetBtn">Reset</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

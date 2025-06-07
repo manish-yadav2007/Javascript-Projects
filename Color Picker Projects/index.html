@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="color-picker-bg" id="colorPickerContainer">
+        <div class="color-card">
+            <h1 class="title">🎨 Color Picker</h1>
+
+            <div class="color-buttons">
+                <button class="btn bg-grey" id="greyBtn" data-color="#e0e0e0">#e0e0e0</button>
+                <button class="btn bg-green" id="greenBtn" data-color="#6fcf97">#6fcf97</button>
+                <button class="btn bg-blue" id="blueBtn" data-color="#56ccf2">#56ccf2</button>
+                <button class="btn bg-purple" id="purpleBtn" data-color="#bb6bd9">#bb6bd9</button>
+            </div>
+
+            <p class="bg-title">Background Color: <span class="hexcode" id="selectedColorHexCode">#ffffff</span></p>
+            <p class="description">Click any color above to change the page background color.</p>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
