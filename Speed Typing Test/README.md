@@ -1,0 +1,1 @@
+# This is my Speed Typing Javascript project Readme file
