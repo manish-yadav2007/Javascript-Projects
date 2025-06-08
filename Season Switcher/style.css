@@ -17,7 +17,7 @@
 
 body,
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'inter', sans-serif;
     background: linear-gradient(to bottom right, #e0f7fa, #fffde7);
     min-height: 100vh;
     display: flex;
