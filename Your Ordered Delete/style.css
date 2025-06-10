@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+/* Reset */
+
+
+
+body {
+    margin: 0;
+    padding: 40px;
+    background-color: #f4f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+/* Wrapper */
+.order-wrapper {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.order-heading {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #2d3748;
+    text-align: center;
+}
+
+/* Items container */
+.ordered-items-container ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Individual item */
+.ordered-items-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #edf2f7;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #2d3748;
+}
+
+/* Cancel button */
+.btn-danger {
+    background-color: #e53e3e;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c53030;
+}
