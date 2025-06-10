@@ -16,7 +16,6 @@ let intervalId = null;
 
 
 
-
 resetButton.addEventListener("click", function () {
     spinnerLoading.classList.remove("d-none");
     quoteDisplayParagraph.textContent = "";
@@ -44,6 +43,8 @@ resetButton.addEventListener("click", function () {
     });
 });
 
+
+
 submitButton.addEventListener("click", function () {
     if (
         quoteInputElement.value.trim() ===
@@ -65,4 +66,7 @@ window.addEventListener("DOMContentLoaded", function() {
         result: resultDisplay.textContent
    }))    
 })
+
+
+
 
