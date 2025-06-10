@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+
+
+
+/* Base reset */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fafa;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Skills wrapper */
+.skills-wrapper {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 480px;
+    width: 100%;
+}
+
+/* Title */
+.skills-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Skill list container */
+.skills-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* List item style */
+.todo-item-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Checkbox style */
+.todo-item-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #38a169;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Label style */
+ .todo-item-container label {
+    font-size: 18px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+} 
+
+/* Checked style */
+.change-style {
+    color: green;
+    font-weight: 600;
+}
