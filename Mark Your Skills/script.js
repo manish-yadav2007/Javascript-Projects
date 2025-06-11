@@ -11,6 +11,8 @@ let skillsContainerEl = document.getElementById("skillsContainer");
 
 
 
+
+
 function changeStatus(checkboxId, labelId) {
     let checkboxEl = document.getElementById(checkboxId);
     let labelEl = document.getElementById(labelId);
