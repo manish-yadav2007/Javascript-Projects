@@ -6,6 +6,11 @@ let skillList = [
 
 let skillsContainerEl = document.getElementById("skillsContainer");
 
+
+
+
+
+
 function changeStatus(checkboxId, labelId) {
     let checkboxEl = document.getElementById(checkboxId);
     let labelEl = document.getElementById(labelId);
@@ -15,6 +20,9 @@ function changeStatus(checkboxId, labelId) {
     } else {
         labelEl.classList.remove("change-style");
     }
+
+
+
 }
 
 function createAndAppendItem(skill) {
