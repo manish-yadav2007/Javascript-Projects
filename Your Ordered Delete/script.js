@@ -9,6 +9,10 @@ let itemList = [{
 {
     itemName: "Paratha",
     uniqueNo: 3,
+},
+{
+    itemName: "Burger",
+    uniqueNo: 4 
 }
 ];
 
