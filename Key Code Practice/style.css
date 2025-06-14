@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+
+/* Reset + Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Wrapper */
+.unicode-ui-wrapper {
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Card Container */
+.unicode-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Heading */
+.unicode-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+/* Input */
+.unicode-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.unicode-input:focus {
+    border-color: #3b82f6;
+}
+
+/* Subtitle */
+.unicode-subtitle {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+/* Unicode List */
+.key-code-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.key-code-list li {
+    background-color: #e0f2fe;
+    color: #0c4a6e;
+    font-weight: 500;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
