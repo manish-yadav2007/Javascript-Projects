@@ -23,7 +23,6 @@ let orderedItemsContainerEl = document.getElementById("orderedItemsContainer");
 
 function deleteListItems(buttonId) {
     let btnIdElement = document.getElementById(buttonId);
-
     btnIdElement.parentElement.remove();
 
 
