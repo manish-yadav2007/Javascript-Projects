@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+}
+
+.bg-container {
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+.console-container {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+}
+
+form label,
+textarea,
+input,
+select {
+    display: block;
+    width: 100%;
+}
+
+label {
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.25rem;
+}
+
+input,
+textarea,
+select {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #38bdf8;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn {
+    background-color: #38bdf8;
+    color: #0f172a;
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0ea5e9;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.error-message {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: -0.3rem;
+    margin-bottom: 0.75rem;
+}
