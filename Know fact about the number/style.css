@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+:root {
+    --primary-bg: #1a2a6c;
+    /* Deep blue for background */
+    --secondary-bg: #b21f1f;
+    /* Red accent for gradient */
+    --tertiary-bg: #fdbb2d;
+    /* Yellow accent for gradient */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    /* Slightly transparent white for card */
+    --text-dark: #333;
+    --text-light: #f8f9fa;
+    /* Off-white for general text */
+    --accent-color: #007bff;
+    /* Primary button color (Bootstrap blue) */
+    --input-border-color: #ced4da;
+    --input-focus-shadow: rgba(0, 123, 255, 0.25);
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg), var(--tertiary-bg));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-dark);
+    /* Default text color for the card */
+    overflow: hidden;
+    /* Prevent scrollbar from animate.css */
+}
+
+.main-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* Add some padding on smaller screens */
+    box-sizing: border-box;
+}
+
+.fact-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    /* Stronger, more modern shadow */
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    /* Subtle frosted glass effect */
+    animation: fadeInScale 0.8s ease-out forwards;
+    /* Custom animation for card entry */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.card-heading {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 2.5rem;
+    /* Larger heading */
+    color: var(--primary-bg);
+    /* Use primary color for heading */
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tagline {
+    font-family: var(--body-font);
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    max-width: 80%;
+    /* Constrain width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {
+    max-width: 400px;
+    /* Control input group width */
+    margin: 0 auto;
+    /* Center the input group */
+}
+
+.fact-input {
+    border-radius: 0.5rem 0 0 0.5rem;
+    /* Rounded corners on left */
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--input-border-color);
+    transition: all 0.3s ease;
+    box-shadow: none;
+    /* Remove default Bootstrap shadow */
+}
+
+.fact-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem var(--input-focus-shadow);
+    outline: none;
+}
+
+
+
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.loading-text {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.fact-display {
+    font-family: var(--body-font);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-bg);
+    /* Use a darker color for the fact text */
+    min-height: 80px;
+    /* Ensure space even when empty */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.03);
+    /* Subtle background for the fact */
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    line-height: 1.5;
+    transition: background-color 0.3s ease;
+}
+
+.fact-display:empty:before {
+    content: attr(data-placeholder);
+    /* Placeholder if fact is empty (for JS) */
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-heading {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .fact-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-heading {
+        font-size: 1.75rem;
+    }
+
+    .fact-input,
+    .fact-button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .fact-display {
+        font-size: 1rem;
+    }
+}
