@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+
+
+/* Import Google Fonts: Montserrat for titles, Inter for body/buttons */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* --- CSS Variables for a Sophisticated Dark Theme --- */
+:root {
+    --bg-gradient-start: #0f172a;
+    /* Deep charcoal blue */
+    --bg-gradient-end: #020617;
+    /* Even darker, almost black */
+
+    --container-bg: rgba(255, 255, 255, 0.08);
+    /* More subtle frosted glass */
+    --container-border: rgba(255, 255, 255, 0.1);
+    /* Subtle white border */
+    --container-shadow-top: rgba(0, 0, 0, 0.3);
+    /* Darker top shadow */
+    --container-shadow-bottom: rgba(0, 0, 0, 0.6);
+    /* Deeper bottom shadow */
+
+    --text-color-light: #e2e8f0;
+    /* Off-white for general text */
+    --title-color: #a78bfa;
+    /* Soft violet for the title */
+
+    --button-bg-base: #2a2a30;
+    /* Darker button base */
+    --button-shadow-inset: #1a1a1f;
+    /* Inset shadow for depth */
+    --button-shadow-outset: #3a3a41;
+    /* Outset shadow for lift */
+    --button-text-color: #cbd5e1;
+    /* Lighter text for buttons */
+    --button-hover-bg: #3a3a41;
+    --button-active-shadow-inset: #3a3a41;
+    --button-active-shadow-outset: #1a1a1f;
+
+    --panel-bg: #0d131a;
+    /* Very dark background for the light panel */
+    --light-inactive-color: #3d4045;
+    /* Soft dark gray for inactive lights */
+    --light-inactive-shadow: rgba(0, 0, 0, 0.8);
+    /* Stronger inner shadow for inactive lights */
+
+    --red-active-color: #ef4444;
+    /* Bright red */
+    --yellow-active-color: #facc15;
+    /* Golden yellow */
+    --green-active-color: #22c55e;
+    /* Vibrant green */
+}
+
+/* --- Universal Reset & Base Styles --- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    /* Use Inter as the default body font */
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
+    /* Smoother fonts for Firefox */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+.traffic-bg {
+    min-height: 100vh;
+    /* Use min-height for flexibility */
+    width: 100%;
+    /* Deeper, more sophisticated gradient */
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Center content vertically */
+    padding: 40px;
+    /* More generous padding */
+}
+
+.traffic-container {
+    /* More refined glassmorphism */
+    background: var(--container-bg);
+    border-radius: 28px;
+    /* Slightly larger border-radius */
+    padding: 50px;
+    /* Increased padding inside container */
+    width: 100%;
+    max-width: 680px;
+    /* Slightly wider max-width for balance */
+    backdrop-filter: blur(20px) saturate(180%);
+    /* Stronger blur and saturation */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    /* For WebKit browsers */
+    /* Layered shadows for depth */
+    box-shadow: 0 25px 50px var(--container-shadow-bottom),
+        /* Deep shadow below */
+        0 0 0 1px var(--container-border);
+    /* Subtle inner border for crispness */
+    text-align: center;
+    color: var(--text-color-light);
+    border: 1px solid var(--container-border);
+    /* Outer border for subtle definition */
+}
+
+.title {
+    /* Use Montserrat for a bolder, more modern title */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2rem;
+    /* Larger title */
+    margin-bottom: 50px;
+    /* More space below title */
+    font-weight: 700;
+    /* Bolder */
+    color: var(--title-color);
+    /* Accent color for the title */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    /* Subtle text shadow */
+    letter-spacing: -0.02em;
+    /* Slightly tighter letter spacing */
+}
+
+.traffic-wrapper {
+    display: flex;
+    justify-content: center;
+    /* Center items in the wrapper initially */
+    align-items: flex-start;
+    /* Align items to the top if they have different heights */
+    gap: 40px;
+    /* Increased gap */
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+}
+
+.control-buttons {
+    gap: 25px;
+    /* Increased gap between buttons */
+}
+
+.traffic-btn {
+    padding: 14px 30px;
+    /* More generous padding for buttons */
+    border-radius: 16px;
+    /* Larger border-radius for softer buttons */
+    border: none;
+    font-size: 1.1rem;
+    /* Slightly larger font size */
+    font-weight: 600;
+    /* Bolder button text */
+    color: var(--button-text-color);
+    background: var(--button-bg-base);
+    /* Refined neumorphic shadow */
+    box-shadow: 6px 6px 18px var(--button-shadow-inset),
+        /* Darker bottom-right */
+        -6px -6px 18px var(--button-shadow-outset);
+    /* Lighter top-left */
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Smoother animation curve */
+    cursor: pointer;
+    outline: none;
+    /* Remove default outline */
+}
+
+.traffic-btn:hover {
+    transform: translateY(-2px);
+    /* Subtle lift on hover */
+    background-color: var(--button-hover-bg);
+    /* Slightly lighter background on hover */
+    box-shadow: 8px 8px 20px var(--button-shadow-inset),
+        /* More pronounced hover shadow */
+        -8px -8px 20px var(--button-shadow-outset);
+}
+
+.traffic-btn:active {
+    transform: translateY(1px);
+    /* Push down on click */
+    background-color: var(--button-bg-base);
+    /* Inset shadow for pressed effect */
+    box-shadow: inset 4px 4px 12px var(--button-shadow-outset),
+        /* Swapped shadows for inset feel */
+        inset -4px -4px 12px var(--button-shadow-inset);
+}
+
+/* Specific button colors for visual distinction */
+.stop-btn {
+    background-color: #a33f4a;
+}
+
+/* Darker red */
+.ready-btn {
+    background-color: #b8912d;
+}
+
+/* Darker yellow/gold */
+.go-btn {
+    background-color: #2b704c;
+}
+
+/* Darker green */
+
+/* Hover effects for specific buttons */
+.stop-btn:hover {
+    background-color: #c04c5a;
+}
+
+.ready-btn:hover {
+    background-color: #d1a53e;
+}
+
+.go-btn:hover {
+    background-color: #3b9164;
+}
+
+
+.light-panel {
+    background-color: var(--panel-bg);
+    padding: 35px 25px;
+    /* Slightly more padding for the panel */
+    border-radius: 35px;
+    /* More rounded */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Increased gap between lights */
+    align-items: center;
+    /* Deeper inset shadow for the panel */
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8),
+        /* Stronger inner shadow */
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    /* Very subtle border */
+}
+
+.light {
+    width: 110px;
+    /* Slightly larger lights */
+    height: 110px;
+    border-radius: 50%;
+    background-color: var(--light-inactive-color);
+    /* Enhanced inset shadow for inactive state */
+    box-shadow: inset 0 0 20px var(--light-inactive-shadow),
+        /* Deeper inner shadow */
+        0 0 0 3px rgba(255, 255, 255, 0.08);
+    /* Subtle outer ring */
+    transition: background-color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    /* Smoother transitions for light states */
+}
+
+/* Active Light States with pronounced glow */
+.red.active {
+    background-color: var(--red-active-color);
+    /* Stronger, more vibrant glow */
+    box-shadow: 0 0 35px 12px var(--red-active-color),
+        inset 0 0 15px rgba(255, 255, 255, 0.4);
+    /* Inner highlight */
+}
+
+.yellow.active {
+    background-color: var(--yellow-active-color);
+    box-shadow: 0 0 35px 12px var(--yellow-active-color),
+        inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.green.active {
+    background-color: var(--green-active-color);
+    box-shadow: 0 0 35px 12px var(--green-active-color),
+        inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* --- Responsive Layout --- */
+@media screen and (max-width: 768px) {
+    .traffic-container {
+        padding: 40px;
+        max-width: 500px;
+    }
+
+    .title {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+    }
+
+    .traffic-wrapper {
+        flex-direction: column;
+        /* Stack buttons and panel vertically */
+        align-items: center;
+        /* Center them */
+        gap: 40px;
+        /* Keep gap consistent */
+    }
+
+    .control-buttons {
+        flex-direction: row;
+        /* Buttons remain horizontal on smaller screens */
+        flex-wrap: wrap;
+        /* Allow buttons to wrap if screen is very narrow */
+        justify-content: center;
+        gap: 15px;
+        /* Tighter gap for horizontal buttons */
+    }
+
+    .traffic-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .light-panel {
+        padding: 30px 20px;
+        gap: 25px;
+    }
+
+    .light {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .traffic-container {
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(15px) saturate(150%);
+        -webkit-backdrop-filter: blur(15px) saturate(150%);
+    }
+
+    .title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .traffic-wrapper {
+        gap: 30px;
+    }
+
+    .control-buttons {
+        gap: 10px;
+        /* Even tighter for very small screens */
+    }
+
+    .traffic-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .light-panel {
+        padding: 25px 15px;
+        gap: 20px;
+        border-radius: 25px;
+    }
+
+    .light {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Adjust active light glows for smaller sizes */
+    .red.active,
+    .yellow.active,
+    .green.active {
+        box-shadow: 0 0 25px 8px var(--red-active-color), inset 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+}
