@@ -22,6 +22,7 @@ let onAddTodoItem = (userInput, container) => {
         name: userInput,
         uniqueId: todosCount
     };
+    
 
     createAndAppendTodoItem(newTodo, container);
 }
