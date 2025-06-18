@@ -1,6 +1,11 @@
 let userInputEl = document.getElementById("userInput");
 let outputCheckBtnEl = document.getElementById("outputCheckBtn");
 let gameResultEl = document.getElementById("gameResult");
+let difficultySelectEl = document.getElementById("difficultySelect"); 
+
+
+
+
 
 
 let maxGuessedMsg = "Too High! Try Again";

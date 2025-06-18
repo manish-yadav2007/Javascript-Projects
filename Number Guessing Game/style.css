@@ -4,62 +4,112 @@
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
 
 .bg-container {
-  background-color: #246db6;
-  height: 100vh;
+  background: linear-gradient(135deg, #246db6, #1e3a8a);
+  min-height: 100vh;
+  padding: 40px 20px;
 }
 
 .guess-game-img {
-  width: 100%;
+  width: 80%;
+  max-width: 300px;
 }
 
 .game-description {
-  color: #323f4b;
-  font-family: "Roboto";
-  font-size: 24px;
+  color: #1f2933;
+  font-size: 20px;
   font-weight: 500;
-  margin-top: 20px;
 }
 
 .guess-bg-container {
-  background-color: #246db6;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px 20px;
+  margin-bottom: 40px;
 }
 
 .guess-heading {
-  color: white;
-  font-family: "Roboto";
-  font-size: 34px;
-  font-weight: bold;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
 }
 
 .guess-number-image {
   width: 50px;
+  vertical-align: middle;
 }
 
 .user-input {
-  text-align: center;
-  color: #1f2933;
-  font-family: "Roboto";
-  font-size: 30px;
-  font-weight: 500;
-  width: 300px;
-  padding: 10px;
+  max-width: 300px;
+  padding: 14px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+}
+
+.user-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.check-guess,
+.btn-guess {
+  background: linear-gradient(to right, #0ea5e9, #2563eb);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.check-guess:hover,
+.btn-guess:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(14, 165, 233, 0.5);
 }
 
 .game-result {
+  font-size: 20px;
+  font-weight: 600;
   color: #ffffff;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 500;
-  padding: 10px;
 }
 
-.check-guess {
-  width: 170px;
-  border-radius: 5px;
-  margin: 20px;
+.difficulty-select {
+  max-width: 180px;
+  margin: 10px auto;
+  background: rgb(220, 220, 220);
+  backdrop-filter: blur(8px);
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.468);
+  border-radius: 8px;
   padding: 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.difficulty-select:focus {
+  outline: none;
+  box-shadow: 5 5 10px rgba(255, 255, 255, 0.5);
+}
+
+.difficulty-label {
+  font-size: 1.2rem;
+  font-weight: 600;
 }

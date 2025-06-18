@@ -11,31 +11,36 @@
 </head>
 
 <body>
-
     <div class="container-fluid bg-container">
-        <div class="row bg-white">
-            <div class="col-12 col-md-6 m-auto bg-white pt-5 pb-5">
-                <img class="guess-game-img"
+        <div class="row bg-white shadow-lg rounded-lg p-4">
+            <div class="col-12 text-end">
+                <label class="difficulty-label" for="difficultySelect">Select your Difficulty Level here....</label>
+                <br>
+                <select class="form-select difficulty-select" id="difficultySelect">
+                    <option value="Easy" selected>Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-6 m-auto text-center pt-4 pb-4">
+                <img class="guess-game-img mb-3"
                     src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-game-img.png" />
-                <p class="text-center game-description">
-                    Find out the right number between 1 to 100
-                </p>
+                <p class="game-description">Find out the right number between 1 to 100</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 guess-bg-container text-center">
-                <h1 class="guess-heading">
+
+        <div class="row justify-content-center text-center mt-4">
+            <div class="col-12 col-md-8 guess-bg-container rounded-4 shadow-lg">
+                <h1 class="guess-heading mb-4">
                     Guess The Number
-                    <img class="guess-number-image"
+                    <img class="guess-number-image ms-2"
                         src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-number-img.png" />
                 </h1>
-                <input type="text" class="user-input" id="userInput" />
+                <input type="text" class="form-control user-input mx-auto mb-3" id="userInput" />
                 <div>
-                    <button class="btn btn-info check-guess" id="outputCheckBtn">
-                        Check
-                    </button>
+                    <button class="btn btn-lg btn-guess me-2" id="outputCheckBtn">Check</button>
                 </div>
-                <p class="game-result" id="gameResult"></p>
+                <p class="game-result mt-3" id="gameResult"></p>
             </div>
         </div>
     </div>
