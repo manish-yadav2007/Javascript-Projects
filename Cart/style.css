@@ -241,3 +241,26 @@ header {
     font-size: 35px;
     cursor: pointer;
 }
+
+.add-cart {
+    background-color: #333;
+    border-radius: 10px;
+    color: #ccc;
+    padding: 20px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in;
+}
+
+.add-cart:hover {
+    transform: scale(1.1);
+}
+
+.cart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}

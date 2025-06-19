@@ -82,6 +82,7 @@ let createAndAppendCartItems = (items) => {
     // create Product Image
     let createProductImage = document.createElement("img");
     createProductImage.setAttribute("src", items.productImage);
+    createProductImage.classList.add("img-fluid"); 
     createProductImageContainer.appendChild(createProductImage);
 
 
@@ -115,7 +116,7 @@ let createAndAppendCartItems = (items) => {
 
 
     let createCartIcon = document.createElement("i");
-    createCartIcon.classList.add( "fa-solid", "fa-cart-plus");
+    createCartIcon.classList.add( "fa-solid", "fa-cart-plus", "add-cart");
     createPriceAndCartContainer.appendChild(createCartIcon);
 
 
