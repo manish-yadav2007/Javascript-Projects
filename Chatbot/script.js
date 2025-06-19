@@ -14,7 +14,8 @@ let getReplayFromChatBot = () => {
 
         let noOfChatbotMsg = chatbotMsgList.length;
 
-        let chatbotMsg = chatbotMsgList[Math.ceil(Math.random() * noOfChatbotMsg) - 1];
+        let chatbotMsg = chatbotMsgList[Math.floor(Math.random() * noOfChatbotMsg)];
+
 
         let msgContainerEl = document.createElement("div");
         msgContainerEl.classList.add("msg-from-chatbot-container");
@@ -28,7 +29,7 @@ let getReplayFromChatBot = () => {
         createMsgEl.classList.add("msg-from-chatbot");
         msgContainerEl.appendChild(createMsgEl);
 
-    }, 2500); 
+    }, 2500);
 
 }
 
@@ -67,5 +68,5 @@ let sendMsgToContainer = () => {
 
 
 
-sendMsgBtnEl.addEventListener("click", sendMsgToContainer); 
+sendMsgBtnEl.addEventListener("click", sendMsgToContainer);
 
