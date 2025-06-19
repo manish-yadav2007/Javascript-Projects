@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0f1117;
+    color: #ffffff;
+}
+
+.bg-container {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1));
+    border-radius: 12px;
+    box-shadow: 3px 3px 4px rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+.heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #00ffdd;
+}
+
+.request-url-text {
+    font-weight: 600;
+    color: #c0c0c0;
+}
+
+.request-url {
+    color: #00ffdd;
+    font-weight: 400;
+    word-break: break-all;
+}
+
+.button {
+    color: #000000;
+    background-color: transparent;
+    padding: 10px 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 2px solid #00ffdd;
+    color: #ffffff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #63ffea;
+    transform: scale(1.03);
+    color: #000000;
+}
+
+.request-status {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.loading-text {
+    font-style: italic;
+    color: #ffd700;
+    font-size: 1rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.http-response {
+    background-color: #1c1c1c;
+    border: 1px solid #333333;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #c8e6ff;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.section-label {
+    font-weight: 600;
+    color: #bbbbbb;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
