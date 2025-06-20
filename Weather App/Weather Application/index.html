@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="weather-app-container">
+        <header class="app-header">
+            <h1>WeatherWise</h1>
+        </header>
+
+        <div class="search-section">
+            <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off">
+            <button id="searchBtn"><i class="fas fa-search"></i></button>
+            <div class="unit-toggle-container">
+                <input type="checkbox" id="unitToggle" class="unit-toggle-checkbox">
+                <label for="unitToggle" class="unit-toggle-label">Use Imperial Units (F)</label>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="spinner-overlay d-none">
+            <div class="spinner-border"></div>
+            <p class="loading-text">Fetching weather data...</p>
+        </div>
+
+        <div id="weatherDisplay" class="weather-display d-none">
+            <h2 id="cityName" class="city-name"></h2>
+            <p class="date-time" id="currentDateTime"></p>
+
+            <div class="main-weather-info">
+                <img id="weatherIcon" src="" alt="Weather Icon" class="weather-icon">
+                <p id="temperature" class="temperature"></p>
+                <p id="weatherDescription" class="weather-description"></p>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-item">
+                    <i class="fas fa-wind icon-detail"></i>
+                    <span id="windSpeed" class="detail-value"></span>
+                    <span class="detail-label">Wind Speed</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tint icon-detail"></i>
+                    <span id="humidity" class="detail-value"></span>
+                    <span class="detail-label">Humidity</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-eye icon-detail"></i>
+                    <span id="visibility" class="detail-value"></span>
+                    <span class="detail-label">Visibility</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tachometer-alt icon-detail"></i>
+                    <span id="pressure" class="detail-value"></span>
+                    <span class="detail-label">Pressure</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="initialMessage" class="initial-message d-block">
+            <p>Enter a city to get started!</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

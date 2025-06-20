@@ -1,0 +1,434 @@
+/* Custom CSS Variables for easy theme management */
+:root {
+    --bg-dark: #1a1a2e;
+    /* Deep dark blue/purple for background */
+    --card-bg-dark: #2e2e4a;
+    /* Slightly lighter dark for main card */
+    --text-light: #e0e0e0;
+    /* Off-white for general text */
+    --text-accent: #bb86fc;
+    /* A vibrant, but not neon, purple accent */
+    --input-bg: #3a3a5a;
+    /* Darker input background */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --button-bg: linear-gradient(to right, #6a11cb, #20e2d7);
+    /* Vibrant gradient */
+    --initial-message-color: rgba(255, 255, 255, 0.6);
+    --checkbox-border: #757575;
+    --checkbox-checked: #20e2d7;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* --- App Container & Header --- */
+.weather-app-container {
+    background-color: var(--card-bg-dark);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px var(--shadow-color);
+    padding: 30px;
+    width: 100%;
+    margin: 40px 0 40px;
+    max-width: 550px;
+    /* Max width for larger screens */
+    text-align: center;
+    border: 1px solid var(--border-color);
+    position: relative;
+    /* For spinner overlay */
+}
+
+.app-header h1 {
+    font-size: 2.5em;
+    color: var(--text-accent);
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Search Section --- */
+.search-section {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows items to wrap on smaller screens */
+    justify-content: center;
+    align-items: center;
+    /* Align items vertically */
+    margin-bottom: 40px;
+    gap: 10px;
+    /* Space between input, button, and new toggle */
+}
+
+#cityInput {
+    flex-grow: 1;
+    /* Allows input to take available space */
+    min-width: 150px;
+    /* Ensures input doesn't get too small */
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--input-bg);
+    color: var(--text-light);
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cityInput::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+#cityInput:focus {
+    border-color: var(--text-accent);
+    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.3);
+}
+
+#searchBtn {
+    padding: 12px 20px;
+    background: var(--text-accent);
+    color: white;
+    border: none;
+    width: 100%;
+    margin: 10px 0 0 0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#searchBtn:hover {
+    transform: translateY(-3px);
+}
+
+#searchBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- NEW: Unit Toggle Styling --- */
+.unit-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between checkbox and label */
+    margin-top: 10px;
+    /* Add some space if it wraps below input/button */
+    width: 100%;
+    /* Take full width on small screens */
+    justify-content: center;
+    /* Center the toggle */
+}
+
+.unit-toggle-checkbox {
+    /* Hide default checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--checkbox-border);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.unit-toggle-checkbox:checked {
+    background-color: var(--checkbox-checked);
+    border-color: var(--checkbox-checked);
+}
+
+.unit-toggle-checkbox:checked::after {
+    content: '\2713';
+    /* Checkmark symbol */
+    font-size: 16px;
+    color: var(--bg-dark);
+    /* Dark color for checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.unit-toggle-label {
+    font-size: 0.95em;
+    color: var(--text-light);
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* --- Spinner Overlay --- */
+.spinner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(46, 46, 74, 0.9);
+    /* Semi-transparent overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    /* Above other content */
+    border-radius: 20px;
+    /* Match container border-radius */
+}
+
+.spinner-border {
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--text-accent);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.loading-text {
+    font-size: 1.2em;
+    color: var(--text-light);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Weather Display Section --- */
+.weather-display {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Smooth transition for showing/hiding */
+    min-height: 250px;
+    /* Prevents layout jump when content changes */
+    display: flex;
+    /* Ensure it's a flex container for content layout */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.city-name {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.date-time {
+    font-size: 0.9em;
+    color: var(--text-light);
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.main-weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+    /* Soft shadow for icon */
+}
+
+.temperature {
+    font-size: 4em;
+    /* Large temperature */
+    font-weight: 700;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1;
+}
+
+.weather-description {
+    font-size: 1.2em;
+    color: var(--text-accent);
+    text-transform: capitalize;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.detail-item {
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+}
+
+.icon-detail {
+    font-size: 1.8em;
+    color: var(--text-accent);
+    margin-bottom: 8px;
+}
+
+.detail-value {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.detail-label {
+    font-size: 0.85em;
+    color: var(--text-light);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- Initial/Error Message Styling --- */
+.initial-message {
+    background-color: var(--input-bg);
+    /* Use input bg for a softer look than error color */
+    color: var(--initial-message-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    /* Managed by JS d-block/d-none */
+    transform: translateY(20px);
+    /* Managed by JS d-block/d-none */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.initial-message p {
+    margin: 0;
+}
+
+
+/* --- Utility Classes (for JS toggling) --- */
+.d-none {
+    display: none !important;
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+}
+
+.d-block {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.d-flex-visible {
+    /* For spinner */
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 500px) {
+    .weather-app-container {
+        padding: 20px;
+        border-radius: 0;
+        /* Full width on small screens */
+        box-shadow: none;
+        border: none;
+    }
+
+    body {
+        padding: 0;
+        /* No body padding on very small screens */
+        align-items: flex-start;
+        /* Start from top on mobile */
+        min-height: 100vh;
+        /* Ensure full height */
+    }
+
+    .app-header h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .search-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #cityInput,
+    #searchBtn,
+    .unit-toggle-container {
+        width: 100%;
+        /* Make search elements full width */
+    }
+
+    .temperature {
+        font-size: 3.5em;
+    }
+
+    .weather-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        /* Stack details vertically on very small screens */
+    }
+}
+
+@media (max-width: 350px) {
+    .detail-item {
+        padding: 12px;
+    }
+
+    .detail-value {
+        font-size: 1.1em;
+    }
+
+    .detail-label {
+        font-size: 0.8em;
+    }
+}
