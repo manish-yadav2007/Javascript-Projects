@@ -1,32 +1,50 @@
 let todoItemsContainerElement = document.getElementById('todoItemsContainer');
 let addTodoBtn = document.getElementById('addTodoButton');
+let saveBtnEl = document.getElementById("saveBtn");
+
+
+
+
+
+
+let getTodoListFromLocalStorage = () => {
+    let retrieveTodoList = localStorage.getItem("saveTodo");
+    let parsedData = JSON.parse(retrieveTodoList);
+
+
+    if (parsedData === null) {
+        return [];
+    }
+    else {
+        return parsedData;
+    }
+}
+
+
 
 
 // create todo list object 
 
-let todoList = [
-    {
-        name: "Learn HTML",
-        uniqueId: 1,
-    },
-    {
-        name: "Learn CSS",
-        uniqueId: 2,
-    },
-    {
-        name: "Learn JavaScript",
-        uniqueId: 3
-    },
-    {
-        name: "Learn React",
-        uniqueId: 4
-    }
-]
+let todoList = getTodoListFromLocalStorage();
+
+
+
+
+
+
+saveBtnEl.addEventListener("click", () => {
+    localStorage.setItem("saveTodo", JSON.stringify(todoList));
+})
+
 
 
 
 
 let todosCount = todoList.length;
+
+
+
+
 
 
 
@@ -61,11 +79,36 @@ function onTodoStatusChange(checkBoxUniqueId, labelElementUniqueId) {
 
 
 
-
-
 function onDeleteTodo(trashIcon) {
     let todoElement = document.getElementById(trashIcon);
     todoItemsContainerElement.removeChild(todoElement);
+
+
+    // find each todo id using findIndex 
+
+    let deletedElementIndex = todoList.findIndex(
+        (eachTodo) => {
+
+
+            // if eachTodId is equal to todoId  then reture the first index 
+            let eachTodoId = "todo" + eachTodo.uniqueId;
+
+            if (eachTodoId === trashIcon) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+
+
+        }
+
+    );
+
+
+    todoList.splice(deletedElementIndex, 1);
+
 }
 
 
@@ -86,7 +129,7 @@ function createAndAppendTodoItem(todo) {
     createListItem.classList.add("todo-item-container", "d-flex", "flex-row");
     createListItem.id = trashIcon;
     todoItemsContainerElement.appendChild(createListItem);
-    
+
 
 
     // create input check box 
@@ -99,7 +142,7 @@ function createAndAppendTodoItem(todo) {
         onTodoStatusChange(checkBoxUniqueId, labelElementUniqueId);
     }
     createListItem.appendChild(createInputCheckbox);
-    
+
 
 
 
@@ -109,7 +152,7 @@ function createAndAppendTodoItem(todo) {
     let createLabelContainer = document.createElement('div');
     createLabelContainer.classList.add("label-container", "d-flex", "flex-row");
     createListItem.appendChild(createLabelContainer);
-    
+
 
 
 
@@ -124,7 +167,7 @@ function createAndAppendTodoItem(todo) {
     createLabelElement.textContent = todo.name;
     createLabelElement.id = labelElementUniqueId;
     createLabelContainer.appendChild(createLabelElement);
-    
+
 
 
 
@@ -178,12 +221,17 @@ function onAddTodoItem() {
         name: userEnteredValue,
         uniqueId: todosCount
     }
+
+
+    todoList.push(newTodo);
+
+
     createAndAppendTodoItem(newTodo);
     userInputElement.value = "";
 }
 
 
-addTodoBtn.onclick = function() {
+addTodoBtn.onclick = function () {
     onAddTodoItem();
 }
 
