@@ -14,7 +14,7 @@ let cartItems = [
     { productName: "Casual Pink Polo", price: 2200, productImage: "https://res.cloudinary.com/dyjo8b263/image/upload/v1750323225/product6_cmxlzc.jpg", productId: 1007 }
 ];
 
-let cartProductIds = new Set(); // ✅ Prevent duplicate cart entries
+let cartProductIds = new Set(); // Prevent duplicate cart entries
 let productSectionEl = document.getElementById("productSection");
 
 // Create main container
@@ -57,11 +57,11 @@ let createAndAppendCartItems = (item) => {
 
     let createCartIcon = document.createElement("i");
     createCartIcon.classList.add("fa-solid", "fa-cart-plus", "add-cart");
-    createCartIcon.setAttribute("data-id", item.productId); // ✅ Data attribute for tracking
+    createCartIcon.setAttribute("data-id", item.productId); // Data attribute for tracking
     createPriceAndCartContainer.appendChild(createCartIcon);
 
 
-    // ✅ Attach individual event listener here
+    // Attach individual event listener here
     createCartIcon.addEventListener("click", () => {
         addToCart(item);
     });
@@ -82,7 +82,7 @@ for (let item of cartItems) {
 
 
 
-// ✅ Toggle Cart visibility
+// Toggle Cart visibility
 cartIconEl.addEventListener("click", () => cartEl.classList.add("active"));
 cartCloseEl.addEventListener("click", () => cartEl.classList.remove("active"));
 
@@ -97,7 +97,7 @@ cartCloseEl.addEventListener("click", () => cartEl.classList.remove("active"));
 
 
 
-// ✅ Add to Cart Function
+// Add to Cart Function
 let addToCart = (item) => {
 
 
