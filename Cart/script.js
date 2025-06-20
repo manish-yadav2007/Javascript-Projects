@@ -2,7 +2,7 @@ let cartIconEl = document.getElementById("cart-icon");
 let cartEl = document.querySelector(".cart");
 let cartCloseEl = document.getElementById("cartClose");
 let cartContentContainer = document.querySelector(".cart-content");
-
+let cartPriceEl = document.getElementById("cartPrice"); 
 let cartItems = [
     { productName: "Casual Black Polo", price: 2500, productImage: "https://res.cloudinary.com/dyjo8b263/image/upload/v1750323225/product1_n2tuf8.jpg", productId: 1000 },
     { productName: "Casual Blue Polo", price: 2200, productImage: "https://res.cloudinary.com/dyjo8b263/image/upload/v1750323229/product3_pe31ek.jpg", productId: 1001 },
@@ -21,6 +21,10 @@ let productSectionEl = document.getElementById("productSection");
 let productCardMainContainer = document.createElement("div");
 productCardMainContainer.classList.add("product-content");
 productSectionEl.append(productCardMainContainer);
+
+
+
+
 
 // Create product cards dynamically
 let createAndAppendCartItems = (item) => {
@@ -91,11 +95,13 @@ cartCloseEl.addEventListener("click", () => cartEl.classList.remove("active"));
 
 
 
+
+
 // ✅ Add to Cart Function
 let addToCart = (item) => {
 
 
-    
+
     if (cartProductIds.has(item.productId)) {
         alert("🛒 Item already in cart!");
         return;
@@ -128,6 +134,7 @@ let addToCart = (item) => {
     createCartPriceSpan.innerText = `₹${item.price}`;
     createCartDetailsContainer.appendChild(createCartPriceSpan);
 
+
     let cartQuantityContainer = document.createElement("div");
     cartQuantityContainer.classList.add("cart-quantity");
     createCartDetailsContainer.appendChild(cartQuantityContainer);
@@ -148,4 +155,22 @@ let addToCart = (item) => {
     let createProductRemoveCrossIcon = document.createElement("i");
     createProductRemoveCrossIcon.classList.add("fa-solid", "fa-trash-arrow-up", "cart-remove");
     createCartProductContainer.appendChild(createProductRemoveCrossIcon);
+
+
+    createProductRemoveCrossIcon.addEventListener("click", () => {
+        let conformMsg = confirm("Are You Sure to delete this item form Cart?");
+        if (conformMsg) {
+            cartContentContainer.removeChild(createCartProductContainer);
+            cartProductIds.delete(item.producId);
+        }
+    })
+
+    
 };
+
+
+// let showCartPrice = () => {
+//     let totalPrice = cartPriceEl.innerHTML; 
+//     totalPrice += item.price; 
+
+// }
