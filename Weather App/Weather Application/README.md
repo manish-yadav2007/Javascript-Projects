@@ -103,7 +103,7 @@ This project allows users to:
 
 ## 📸 Preview
 
-> *(Add screenshots or screen recording GIF here to show how the app looks!)*
+> *project-url- climetsphere.netlify.app*
 
 ---
 
