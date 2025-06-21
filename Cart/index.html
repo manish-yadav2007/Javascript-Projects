@@ -18,44 +18,45 @@
 <body>
 
 
-    <header class="position-fixed w-100  d-flex justify-content-between align-items-center">
-        <a href="" class="logo text-decoration-none">Ecommerce</a>
-        <div id="cart-icon" class="position-relative d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <span class="position-absolute d-flex justify-content-center align-items-center cart-item-count"></span>
+    <header>
+        <a href="#" class="logo">EliteMart</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Shop</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <div id="cart-icon" class="icon-btn">
+                <i class="fa-solid fa-cart-plus add-cart p-4"></i>
+                <span class="cart-item-count"></span>
+            </div>
         </div>
     </header>
-
-
-
 
     <div class="cart">
         <h2 class="cart-title">Your Cart</h2>
         <div class="cart-content">
-
+            <!-- Cart items will be loaded here by JavaScript -->
         </div>
 
-        <div class="total d-flex justify-content-end align-items-center">
-            <div class="total-head">Total</div>
-            <div class="total-price" id="cartPrice">$0</div>
+        <div class="total">
+            <h3 class="total-title">Total</h3>
+            <span class="total-price" id="cartTotal">$0.00</span>
         </div>
         <button class="btn-buy">Buy Now</button>
         <i class="fa-solid fa-xmark" id="cartClose"></i>
-
     </div>
 
-
-
-
-
     <section class="shop" id="productSection">
-        <h1 class="section-title text-center mb-5 mt-3">
-            Shop products
-        </h1>
+        <h1 class="section-title">Shop Products</h1>
+        <div class="product-content">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+
     </section>
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

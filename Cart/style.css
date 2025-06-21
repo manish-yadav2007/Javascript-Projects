@@ -2,115 +2,139 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
-
-/* ROOT VARIABLES: For easier consistency and future changes */
+/* ROOT VARIABLES - Dark Theme */
 :root {
     --primary-color: #e35f26;
-    /* Your accent orange */
-    --secondary-color: #333;
-    /* Dark text/primary elements */
-    --light-gray: #f5f5f5;
-    /* For subtle backgrounds or borders */
-    --medium-gray: #ccc;
+    /* Vibrant orange for accents */
+    --secondary-color: #1a1a1a;
+    /* Deep dark background */
+    --light-bg-color: #2e2e2e;
+    /* Slightly lighter dark for card backgrounds */
+    --medium-border-color: #555555;
     /* For borders, inactive states */
-    --text-color: #444;
-    /* Slightly softer text than pure black */
-    --white-color: #fff;
-    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-    /* Lighter, modern shadow */
-    --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
-    /* For lifted elements */
+    --text-color: #e0e0e0;
+    /* Light text on dark background */
+    --highlight-text-color: #f0f0f0;
+    /* Off-white for prominent text/elements */
+    --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Darker shadow for depth */
     --transition-speed: 0.3s ease;
-    --border-radius-sm: 6px;
     --border-radius-md: 10px;
-    --border-radius-lg: 15px;
 }
 
 /* GLOBAL STYLES */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
-    /* Fallback to sans-serif */
 }
 
 body {
     color: var(--text-color);
-    background-color: var(--light-gray);
-    /* Subtle background for depth */
+    background-color: var(--secondary-color);
     line-height: 1.6;
-    /* Improved readability */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: transparent;
 }
 
 /* HEADER */
 header {
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     padding: 18px 5%;
-    /* Adjusted padding for a more refined look */
-    background: var(--white-color);
-    box-shadow: var(--shadow-light);
-    /* Lighter, more modern shadow */
+    background: var(--light-bg-color);
+    box-shadow: var(--shadow-dark);
     z-index: 99;
     display: flex;
-    /* Ensure flex properties are applied */
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
     font-size: 28px;
-    /* Slightly larger for prominence */
-    color: var(--secondary-color);
     font-weight: 700;
-    /* Bolder logo */
+    color: var(--primary-color);
     transition: color var(--transition-speed);
 }
 
 .logo:hover {
-    color: var(--primary-color);
-    /* Subtle hover effect */
+    color: var(--highlight-text-color);
 }
 
-#cart-icon {
-    font-size: 28px;
-    /* Consistent icon size */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0 40px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icon-btn {
+    font-size: 24px;
+    color: var(--text-color);
     cursor: pointer;
-    color: var(--secondary-color);
     transition: transform var(--transition-speed), color var(--transition-speed);
 }
 
-#cart-icon:hover {
-    transform: scale(1.05);
+.icon-btn:hover {
+    transform: scale(1.1);
     color: var(--primary-color);
 }
 
+/* Cart Item Count Badge */
+#cart-icon {
+    position: relative;
+}
+
+/* Ensure position for absolute child */
 #cart-icon .cart-item-count {
+    position: absolute;
     top: -5px;
-    /* Adjust position for better alignment */
     right: -8px;
-    /* Adjust position */
-    width: 22px;
-    /* Slightly larger badge */
-    height: 22px;
-    /* Slightly larger badge */
+    width: 20px;
+    height: 20px;
     background: var(--primary-color);
     border-radius: 50%;
     font-size: 11px;
-    /* Slightly smaller font for badge */
-    color: var(--white-color);
+    color: var(--highlight-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     visibility: hidden;
-    /* Controlled by JS, as before */
     opacity: 0;
-    /* Smooth fade in/out with JS */
-    transition: opacity var(--transition-speed), transform var(--transition-speed);
     transform: scale(0.8);
-    /* Start smaller, scale up on visibility */
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
 }
 
 #cart-icon .cart-item-count.visible {
-    /* Add this class with JS when count > 0 */
     visibility: visible;
     opacity: 1;
     transform: scale(1);
@@ -119,70 +143,52 @@ header {
 /* SHOP SECTION */
 .shop {
     padding: 120px 5% 50px;
-    /* More top padding to clear header, refined horizontal padding */
     max-width: 1200px;
-    /* Max width for content containment */
     margin: 0 auto;
-    /* Center the shop content */
 }
 
 .section-title {
     font-size: 40px;
-    /* More prominent title */
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--highlight-text-color);
     margin-bottom: 50px;
-    /* More space below title */
+    text-align: center;
 }
 
 .product-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* Adjusted minmax for better flow */
     gap: 30px;
-    /* Consistent gap */
 }
 
 .product-box {
-    background: var(--white-color);
+    background: var(--light-bg-color);
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    /* Ensure content respects border-radius */
-    box-shadow: var(--shadow-light);
-    /* Subtle lift */
+    box-shadow: var(--shadow-dark);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     display: flex;
-    /* Flex container for content */
     flex-direction: column;
-    /* Stack image, name, price */
     padding-bottom: 15px;
-    /* Padding for content inside box */
 }
 
 .product-box:hover {
     transform: translateY(-8px);
-    /* Lift effect on hover */
-    box-shadow: var(--shadow-medium);
-    /* More pronounced shadow */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-.product-box .img-container {
+.img-container {
     display: flex;
     border-radius: var(--border-radius-md);
-    /* Apply radius to container too */
     overflow: hidden;
     margin-bottom: 10px;
-    /* Space between image and text */
 }
 
 .img-container img {
     width: 100%;
     height: 200px;
-    /* Fixed height for image consistency */
     object-fit: cover;
-    /* Ensures images fill space without distortion */
     transition: transform 0.5s ease-in-out;
-    /* Smoother transition */
 }
 
 .img-container:hover img {
@@ -191,11 +197,9 @@ header {
 
 .product-box .product-name {
     font-size: 1.25rem;
-    /* Slightly larger and more readable */
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--highlight-text-color);
     margin: 0 15px 5px;
-    /* Adjusted margins */
     line-height: 1.3;
 }
 
@@ -204,69 +208,50 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 0 15px;
-    /* Consistent horizontal padding */
 }
 
 .price-and-cart .price {
     font-size: 1.2rem;
-    /* Clearer price */
     font-weight: 700;
-    /* Bolder price */
     color: var(--primary-color);
-    /* Highlight price */
 }
 
-.price-and-cart .add-cart {
+.add-cart {
     background-color: var(--primary-color);
-    /* Use primary color */
     border-radius: 50%;
-    /* Perfect circle */
-    color: var(--white-color);
-    /* White icon */
+    color: var(--highlight-text-color);
     width: 40px;
-    /* Larger hit area */
     height: 40px;
-    /* Larger hit area */
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    box-shadow: var(--shadow-dark);
     transition: background-color var(--transition-speed), transform var(--transition-speed);
-    box-shadow: var(--shadow-light);
-    /* Subtle shadow for button */
 }
 
 .add-cart:hover {
-    background-color: #d15520;
-    /* Slightly darker orange on hover */
+    background-color: #ff7f40;
     transform: scale(1.15);
-    /* More pronounced scale */
 }
 
-/* CART SIDEBAR STYLES */
+/* Lighter orange on hover */
+
+/* CART SIDEBAR */
 .cart {
     position: fixed;
     top: 0;
     right: -400px;
-    /* Initially off-screen, a bit wider for content */
     width: 380px;
-    /* Increased width for better content display */
     max-width: 90vw;
-    /* Responsive max-width */
     height: 100%;
-    background: var(--white-color);
-    box-shadow: var(--shadow-medium);
-    /* Stronger shadow for sidebar */
-    padding: 80px 25px 30px;
-    /* Adjusted padding */
+    background: var(--light-bg-color);
+    box-shadow: var(--shadow-dark);
     z-index: 100;
+    padding: 80px 25px 30px;
     overflow-y: auto;
-    /* Use y for vertical scroll */
-    transition: right var(--transition-speed);
     display: flex;
-    /* Use flex for internal layout */
     flex-direction: column;
-    /* Stack elements vertically */
+    transition: right var(--transition-speed);
 }
 
 .cart.active {
@@ -274,69 +259,54 @@ header {
 }
 
 .cart-title {
-    text-align: center;
     font-size: 32px;
-    /* Prominent cart title */
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--highlight-text-color);
     margin-bottom: 30px;
-    /* More space below title */
+    text-align: center;
 }
 
 .cart-content {
     flex-grow: 1;
-    /* Allows cart content to take up available space */
     margin-bottom: 20px;
-    /* Space above total */
 }
 
 .cart-box {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    /* Space between cart items */
-    background-color: var(--light-gray);
-    /* Subtle background for each item */
+    background-color: var(--secondary-color);
     padding: 12px;
     border-radius: var(--border-radius-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    /* Very subtle item shadow */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cart-box img {
     width: 90px;
-    /* Slightly smaller image */
     height: 90px;
     border-radius: var(--border-radius-md);
     object-fit: cover;
     margin-right: 15px;
-    /* Adjusted margin */
     flex-shrink: 0;
-    /* Prevent image from shrinking */
 }
 
 .cart-details {
     display: flex;
-    /* Use flex for details */
     flex-direction: column;
-    /* Stack title, price, quantity */
     gap: 6px;
-    /* Tighter spacing for details */
     margin-right: auto;
     flex-grow: 1;
-    /* Allow details to take space */
 }
 
 .cart-product-title {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--highlight-text-color);
     line-height: 1.3;
 }
 
 .cart-price {
     font-weight: 700;
-    /* Bolder price */
     color: var(--primary-color);
     font-size: 1.05rem;
 }
@@ -345,38 +315,23 @@ header {
     display: flex;
     align-items: center;
     width: 100px;
-    /* Fixed width for consistency */
-    border: 1px solid var(--medium-gray);
-    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--medium-border-color);
+    border-radius: var(--border-radius-md);
     overflow: hidden;
-    /* Ensures internal elements stay within border-radius */
     margin-top: 5px;
-    /* Space above quantity control */
+    color: var(--text-color);
 }
 
 .cart-quantity button {
-    background: transparent;
     width: 30px;
-    border: none;
     font-size: 20px;
-    cursor: pointer;
-    color: var(--secondary-color);
+    color: var(--text-color);
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .cart-quantity button:hover {
     background-color: var(--primary-color);
-    color: var(--white-color);
-}
-
-.cart-quantity #decrement {
-    color: var(--medium-gray);
-    /* Default gray */
-}
-
-.cart-quantity #decrement:hover {
-    color: var(--white-color);
-    background-color: var(--primary-color);
+    color: var(--highlight-text-color);
 }
 
 .cart-quantity .quantity {
@@ -385,78 +340,59 @@ header {
     align-items: center;
     width: 40px;
     font-weight: 600;
-    border-right: 1px solid var(--medium-gray);
-    border-left: 1px solid var(--medium-gray);
-    cursor: default;
-    color: var(--text-color);
+    border-left: 1px solid var(--medium-border-color);
+    border-right: 1px solid var(--medium-border-color);
 }
 
 .cart-remove {
     font-size: 24px;
-    /* Slightly smaller for balance */
-    cursor: pointer;
-    color: var(--medium-gray);
-    /* Softer remove icon */
+    color: var(--medium-border-color);
     margin-left: 15px;
-    /* Space from quantity */
     transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
 .cart-remove:hover {
     color: #dc3545;
-    /* Red on hover */
     transform: scale(1.1);
 }
 
+/* Red on hover */
+
 .total {
-    border-top: 1px solid var(--medium-gray);
-    margin-top: auto;
-    /* Pushes total to the bottom if content is short */
+    border-top: 1px solid var(--medium-border-color);
     padding-top: 20px;
-    /* Space above total text */
     display: flex;
     justify-content: space-between;
-    /* Space out total head and price */
     align-items: center;
     font-size: 20px;
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--highlight-text-color);
 }
 
 .total-price {
     font-weight: 700;
     color: var(--primary-color);
     font-size: 22px;
-    /* Larger total price */
 }
 
 .btn-buy {
     display: block;
     width: 100%;
-    /* Full width button */
     padding: 14px 30px;
-    /* More vertical padding */
     background: var(--primary-color);
-    border: none;
     border-radius: var(--border-radius-md);
     font-size: 18px;
-    /* Larger font */
-    color: var(--white-color);
+    color: var(--highlight-text-color);
     margin: 25px auto 0;
-    /* More space above button */
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
     font-weight: 600;
-    box-shadow: var(--shadow-light);
-    /* Subtle shadow */
+    box-shadow: var(--shadow-dark);
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .btn-buy:hover {
-    background-color: #d15520;
-    /* Darker orange on hover */
+    background-color: #ff7f40;
     transform: translateY(-3px);
-    /* Lift effect */
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 #cartClose {
@@ -464,90 +400,38 @@ header {
     top: 20px;
     right: 20px;
     font-size: 32px;
-    /* Prominent close icon */
-    cursor: pointer;
-    color: var(--secondary-color);
+    color: var(--text-color);
     transition: color var(--transition-speed), transform var(--transition-speed);
 }
 
 #cartClose:hover {
     color: #dc3545;
-    /* Red on hover for close */
     transform: rotate(90deg);
-    /* Playful rotation */
 }
 
 /* RESPONSIVENESS */
 @media (max-width: 768px) {
     header {
         padding: 15px 4%;
-        /* Reduce padding on smaller screens */
     }
 
+    .nav-links {
+        display: none;
+    }
+
+    /* Hide nav links on smaller screens */
     .shop {
         padding: 100px 4% 30px;
-        /* Adjust padding */
     }
 
     .section-title {
         font-size: 32px;
-        /* Adjust title size */
         margin-bottom: 40px;
-    }
-
-    .product-content {
-        gap: 20px;
-        /* Slightly smaller gap */
-    }
-
-    .product-box .product-name {
-        font-size: 1.1rem;
-    }
-
-    .price-and-cart .price {
-        font-size: 1.1rem;
-    }
-
-    .price-and-cart .add-cart {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
     }
 
     .cart {
         width: 320px;
-        /* Smaller cart width on medium screens */
         padding: 70px 20px 25px;
-    }
-
-    .cart-title {
-        font-size: 28px;
-        margin-bottom: 25px;
-    }
-
-    .cart-box img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .cart-product-title {
-        font-size: 0.95rem;
-    }
-
-    .cart-price {
-        font-size: 1rem;
-    }
-
-    .cart-quantity {
-        width: 90px;
-    }
-
-    .cart-quantity button {
-        font-size: 18px;
-    }
-
-    .cart-quantity .quantity {
-        width: 35px;
     }
 }
 
@@ -560,8 +444,8 @@ header {
         font-size: 24px;
     }
 
-    #cart-icon {
-        font-size: 26px;
+    .icon-btn {
+        font-size: 22px;
     }
 
     .shop {
@@ -575,14 +459,11 @@ header {
 
     .cart {
         width: 100vw;
-        /* Full width on very small screens */
-        max-width: none;
         padding: 60px 15px 20px;
     }
 
     .cart-box {
         flex-wrap: wrap;
-        /* Allow wrapping for better layout */
         justify-content: center;
         text-align: center;
         padding: 10px;
@@ -597,7 +478,6 @@ header {
         align-items: center;
         text-align: center;
         flex-basis: 100%;
-        /* Take full width */
         margin-right: 0;
     }
 
@@ -605,24 +485,5 @@ header {
         margin-left: 0;
         margin-top: 10px;
         font-size: 28px;
-    }
-
-    .total {
-        font-size: 18px;
-    }
-
-    .total-price {
-        font-size: 20px;
-    }
-
-    .btn-buy {
-        font-size: 16px;
-        padding: 12px 20px;
-    }
-
-    #cartClose {
-        font-size: 30px;
-        top: 15px;
-        right: 15px;
     }
 }
