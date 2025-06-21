@@ -1,12 +1,7 @@
-import { createAndAppendTodoItem } from './dom.js';
+import { createAndAppendTodoItem } from "./dom.js";
+import { getTodoListFromLocalStorage, saveTodoListToLocalStorage } from "./localstorage.js";
 
-let todoList = [
-    { name: "Learn HTML", uniqueId: 1 },
-    { name: "Learn CSS", uniqueId: 2 },
-    { name: "Learn JavaScript", uniqueId: 3 },
-    { name: "Learn React", uniqueId: 4 },
-];
-
+let todoList = getTodoListFromLocalStorage();
 let todosCount = todoList.length;
 
 let onAddTodoItem = (userInput, container) => {
@@ -15,16 +10,14 @@ let onAddTodoItem = (userInput, container) => {
         return;
     }
 
-    
-
     todosCount += 1;
     let newTodo = {
         name: userInput,
         uniqueId: todosCount
     };
-    
-
+    todoList.push(newTodo);
     createAndAppendTodoItem(newTodo, container);
-}
+    saveTodoListToLocalStorage(todoList);
+};
 
-export { onAddTodoItem, todoList, todosCount as todosCountRef };
+export { onAddTodoItem, todoList };
