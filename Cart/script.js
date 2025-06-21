@@ -26,13 +26,19 @@ productCardMainContainer.classList.add("product-content");
 productSectionEl.append(productCardMainContainer);
 
 // ------------------------ Persistence Functions ------------------------
+//This function saves the cart items to local storage
 function saveCartToLocalStorage() {
+    //Save the cart items array to local storage
     localStorage.setItem("cartItems", JSON.stringify(cartItemsArray));
+    //Set the cart visible status to true in local storage
     localStorage.setItem("cartVisible", "true");
 }
 
+//This function restores the visibility of the cart element based on the value stored in localStorage
 function restoreCartVisibility() {
+    //Get the value of the cartVisible item in localStorage
     const visible = localStorage.getItem("cartVisible");
+    //If the value is "true", add the "active" class to the cart element
     if (visible === "true") cartEl.classList.add("active");
 }
 
